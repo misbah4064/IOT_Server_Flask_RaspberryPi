@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IOT Server</title>
+  <meta name="description" content="Remote Laboratory">
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+</head>
+<style type="text/css">
+.button1 {
+  background-color: #F3CE44;  
+  border-radius: 5px;
+  display: block;
+  width : 100px;
+  color: white;
+  padding: .5em;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Arial;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.button2 {
+  background-color: blue;  
+  border-radius: 5px;
+  display: block;
+  width : 100px;
+  color: white;
+  padding: .5em;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Arial;
+}
+
+.button3 {
+  background-color: red;  
+  border-radius: 5px;
+  display: block;
+  width : 100px;
+  color: white;
+  padding: .5em;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Arial;
+}
+
+.button4 {
+  background-color: green;  
+  border-radius: 5px;
+  display: block;
+  width : 100px;
+  color: white;
+  padding: .5em;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Arial;
+}
+
+
+.button5 {
+  background-color: black;  
+  border-radius: 5px;
+  display: block;
+  width : 100px;
+  color: white;
+  padding: .5em;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Arial;
+}
+
+.button6 {
+  background-color: grey;  
+  border-radius: 5px;
+  display: block;
+  width : 200px;
+  color: white;
+  padding: .5em;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: Arial;
+}
+
+h1{
+  color:#8B4513;
+ font-family: Arial;
+}
+
+label.headingClass{
+  font-family: Arial;
+}
+
+</style>
+<body>
+
+	<div class="container">
+		
+		
+		<div class="row">
+
+			<div class="col-md-9 ">
+			   <h1>IOT Web Server</h1>
+			
+			   <a href="/playSound" class="button6" role="button">Play Sound</a><br/>
+
+			   
+			   {% for pin in pins %}
+			   
+			   <label class="headingClass">
+			   {{ pins[pin].name }}
+                           
+			   {% if pins[pin].state == true %}
+			      - currently </label><strong style="color:green">ON</strong>
+			      <a href="/{{pin}}/off" class={{ pins[pin].css }} role="button">Turn off</a><br/>
+			   {% else %}
+			      - currently <strong style="color:red">OFF</strong>
+			      <a href="/{{pin}}/on" class={{ pins[pin].css }} role="button">Turn on</a><br/>
+			   {% endif %}
+   {% endfor %}
+				
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="jquery-2.2.0.min.js"></script>
+	 <script src="bootstrap.min.js"></script>
+</body> 
+</html>
